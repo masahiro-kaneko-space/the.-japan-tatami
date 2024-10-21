@@ -474,6 +474,14 @@ header {
             top: 50%;
             left: -30px;
             transform: translate(0, -50%); } }
+      header nav > ul > li:last-child {
+        margin-top: 20px; }
+        header nav > ul > li:last-child a svg path {
+          transition: all 0.2s ease;
+          fill: #222; }
+        header nav > ul > li:last-child a svg ellipse {
+          transition: all 0.2s ease;
+          fill: #222; }
       header nav > ul > li ul {
         transition: all 0.2s ease;
         opacity: 0;
@@ -511,6 +519,13 @@ header {
       header nav > ul > li:hover ul {
         opacity: 1;
         pointer-events: visible; }
+      header nav > ul > li:hover:last-child a {
+        padding-left: 0;
+        border: none; }
+        header nav > ul > li:hover:last-child a svg path {
+          fill: #E50012 !important; }
+        header nav > ul > li:hover:last-child a svg ellipse {
+          fill: #E50012 !important; }
   header .btn_menu {
     display: none;
     position: absolute;
@@ -619,6 +634,10 @@ header {
         fill: #f1f1f1; }
     #top header.mv-view nav > ul > li > a {
       color: #f1f1f1; }
+    #top header.mv-view nav > ul > li:last-child a svg path {
+      fill: #f1f1f1; }
+    #top header.mv-view nav > ul > li:last-child a svg ellipse {
+      fill: #f1f1f1; }
     #top header.mv-view nav > ul > li ul li {
       background: #f1f1f1; }
       @media screen and (max-width: 767px) {
@@ -694,7 +713,7 @@ header {
           height: 100vh;
           object-fit: cover; }
     #top #mv .add-animation {
-      animation: zoom-fade 20s both;
+      animation: zoom-fade 10s both;
       transform-origin: 50% 50%; }
 @keyframes zoom-fade {
   0% {
@@ -1251,6 +1270,11 @@ main {
       background-attachment: fixed;
       background-size: cover;
       background-position: left bottom; }
+    main #title.products {
+      background: url("../images/products/mv.jpg") no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: right top; }
     main #title::before {
       content: "";
       display: block;
@@ -1282,6 +1306,70 @@ main {
       font-weight: 400; }
   main .section {
     margin-bottom: 60px; }
+  main .pagelink-area {
+    margin-bottom: 100px; }
+    main .pagelink-area ul {
+      display: flex;
+      justify-content: space-between; }
+      main .pagelink-area ul li {
+        width: 32%;
+        position: relative;
+        z-index: 1;
+        overflow: hidden; }
+        main .pagelink-area ul li a {
+          display: block;
+          width: 100%;
+          height: 200px;
+          background: #222; }
+          main .pagelink-area ul li a span {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            font-size: 1.6rem;
+            color: #f1f1f1; }
+            main .pagelink-area ul li a span::before {
+              content: "";
+              transition: all 0.2s ease;
+              display: block;
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-right: 6px solid transparent;
+              border-left: 6px solid transparent;
+              border-top: 3px solid #f1f1f1;
+              border-bottom: 0;
+              position: absolute;
+              bottom: -20px;
+              left: 50%;
+              transform: translate(-50%, 0); }
+          main .pagelink-area ul li a img {
+            height: 200px;
+            transition: all 0.2s ease;
+            transform-origin: 50% 50%;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.5; }
+          main .pagelink-area ul li a::before {
+            content: "";
+            width: calc(100% - 20px);
+            height: 180px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            display: block;
+            border: 1px solid #f1f1f1; }
+          main .pagelink-area ul li a:hover span::before {
+            bottom: -25px; }
+          main .pagelink-area ul li a:hover img {
+            opacity: 0.8;
+            transform: scale(1.1); }
 
 footer {
   width: 100%;

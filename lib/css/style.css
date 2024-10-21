@@ -727,6 +727,9 @@ header {
         #top main::before {
           width: 500px;
           height: 500px; } }
+    @media screen and (max-width: 767px) {
+      #top main {
+        padding-top: 0; } }
     #top main #section01 {
       position: relative;
       padding: 100px 0;
@@ -1046,7 +1049,7 @@ main {
   position: relative; }
   @media screen and (max-width: 767px) {
     main {
-      padding: 0; } }
+      padding: 100px 0 0 0; } }
   main .btn-area {
     width: 100%;
     text-align: center; }

@@ -318,6 +318,9 @@ body {
   box-sizing: border-box;
   position: relative; }
 
+h1 {
+  font-weight: 400; }
+
 h2 {
   font-size: 1.8rem;
   font-weight: 400;
@@ -366,6 +369,12 @@ strong {
 
 small {
   font-size: 0.8rem; }
+
+.scroll-prevent {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
 
 .container {
   max-width: 1080px;
@@ -431,6 +440,13 @@ header {
         left: 0;
         padding: 20px;
         box-sizing: border-box; } }
+    @media screen and (max-width: 767px) {
+      header nav > ul {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100% - 40px); } }
     header nav > ul > li {
       position: relative;
       width: 100%; }
@@ -442,25 +458,52 @@ header {
         display: block;
         border-left: 0 solid #E50012;
         color: #222; }
+        @media screen and (max-width: 767px) {
+          header nav > ul > li > a {
+            color: #f1f1f1;
+            position: relative;
+            padding: 10px 0; } }
+        @media screen and (max-width: 767px) {
+          header nav > ul > li > a::before {
+            content: "";
+            width: 20px;
+            height: 1px;
+            background: #f1f1f1;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: -30px;
+            transform: translate(0, -50%); } }
       header nav > ul > li ul {
         transition: all 0.2s ease;
         opacity: 0;
         pointer-events: none;
         position: absolute;
-        top: 0;
+        top: 50%;
         left: 200px;
-        width: 240px; }
-        header nav > ul > li ul li {
-          background: rgba(0, 0, 0, 0.8); }
-          header nav > ul > li ul li a {
-            font-family: "Noto Serif JP", "Noto Serif", serif;
-            font-optical-sizing: auto;
-            font-style: normal;
-            font-size: 1.1rem;
-            display: block;
-            padding: 5px 20px;
-            line-height: 1;
-            color: #f1f1f1; }
+        width: 300px;
+        transform: translate(0, -50%);
+        background: rgba(0, 0, 0, 0.8);
+        box-sizing: border-box;
+        padding: 20px; }
+        @media screen and (max-width: 767px) {
+          header nav > ul > li ul {
+            position: static;
+            width: 100%;
+            top: auto;
+            left: auto;
+            transform: none;
+            background: none;
+            padding: 0; } }
+        header nav > ul > li ul li a {
+          font-family: "Noto Serif JP", "Noto Serif", serif;
+          font-optical-sizing: auto;
+          font-style: normal;
+          font-size: 1.1rem;
+          display: block;
+          padding: 5px 20px;
+          line-height: 1;
+          color: #f1f1f1; }
       header nav > ul > li:hover > a {
         color: #E50012;
         padding-left: 20px;
@@ -545,7 +588,7 @@ header {
   header.spmenu_active nav {
     opacity: 1;
     pointer-events: visible;
-    background: rgba(1, 154, 57, 0.8);
+    background: rgba(0, 0, 0, 0.8);
     overscroll-behavior: contain; }
     header.spmenu_active nav > ul > li ul {
       opacity: 1 !important;
@@ -578,8 +621,14 @@ header {
       color: #f1f1f1; }
     #top header.mv-view nav > ul > li ul li {
       background: #f1f1f1; }
+      @media screen and (max-width: 767px) {
+        #top header.mv-view nav > ul > li ul li {
+          background: none; } }
       #top header.mv-view nav > ul > li ul li a {
         color: #222; }
+        @media screen and (max-width: 767px) {
+          #top header.mv-view nav > ul > li ul li a {
+            color: #f1f1f1; } }
   #top #mv {
     position: relative;
     padding-bottom: 100dvh;
@@ -678,58 +727,58 @@ header {
         #top main::before {
           width: 500px;
           height: 500px; } }
-    #top main .section01 {
+    #top main #section01 {
       position: relative;
       padding: 100px 0;
       /* ブランドムービー */
       /* ギャラリー */ }
-      #top main .section01 .message {
+      #top main #section01 .message {
         text-align: center;
         margin-bottom: 4rem;
         font-size: 2.0rem;
         font-weight: 200; }
         @media screen and (max-width: 767px) {
-          #top main .section01 .message {
+          #top main #section01 .message {
             font-size: 1.5rem; } }
-      #top main .section01 .btn-area {
+      #top main #section01 .btn-area {
         margin-bottom: 100px; }
-      #top main .section01 .movie-area {
+      #top main #section01 .movie-area {
         margin-bottom: 100px; }
-        #top main .section01 .movie-area h2 {
+        #top main #section01 .movie-area h2 {
           text-align: center;
           margin-bottom: 2rem; }
-          #top main .section01 .movie-area h2::before {
+          #top main #section01 .movie-area h2::before {
             display: none; }
-        #top main .section01 .movie-area .movie {
+        #top main #section01 .movie-area .movie {
           width: 100%;
           aspect-ratio: 16 / 9; }
-          #top main .section01 .movie-area .movie iframe {
+          #top main #section01 .movie-area .movie iframe {
             width: 100%;
             height: 100%; }
-      #top main .section01 .gallery-area .rayout {
+      #top main #section01 .gallery-area .rayout {
         width: 100%;
         display: flex;
         align-items: center; }
         @media screen and (max-width: 767px) {
-          #top main .section01 .gallery-area .rayout {
+          #top main #section01 .gallery-area .rayout {
             flex-wrap: wrap; } }
-        #top main .section01 .gallery-area .rayout .left {
+        #top main #section01 .gallery-area .rayout .left {
           width: 180px; }
           @media screen and (max-width: 767px) {
-            #top main .section01 .gallery-area .rayout .left {
+            #top main #section01 .gallery-area .rayout .left {
               width: 100%; } }
-        #top main .section01 .gallery-area .rayout .right {
+        #top main #section01 .gallery-area .rayout .right {
           width: calc(100% - 180px); }
           @media screen and (max-width: 767px) {
-            #top main .section01 .gallery-area .rayout .right {
+            #top main #section01 .gallery-area .rayout .right {
               width: 100%; } }
-          #top main .section01 .gallery-area .rayout .right ul .slick-prev {
+          #top main #section01 .gallery-area .rayout .right ul .slick-prev {
             transform: none;
             left: 20px;
             top: auto;
             bottom: -20px;
             width: 75px; }
-            #top main .section01 .gallery-area .rayout .right ul .slick-prev::before {
+            #top main #section01 .gallery-area .rayout .right ul .slick-prev::before {
               content: "";
               transition: all 0.2s ease;
               width: 50px;
@@ -739,7 +788,7 @@ header {
               left: 20px;
               bottom: -5px;
               display: block; }
-            #top main .section01 .gallery-area .rayout .right ul .slick-prev::after {
+            #top main #section01 .gallery-area .rayout .right ul .slick-prev::after {
               content: "";
               transition: all 0.2s ease;
               position: relative;
@@ -750,14 +799,14 @@ header {
               border-style: solid;
               border-color: transparent #222 transparent transparent;
               border-width: 10px 20px 0px 0px; }
-          #top main .section01 .gallery-area .rayout .right ul .slick-next {
+          #top main #section01 .gallery-area .rayout .right ul .slick-next {
             transform: none;
             right: auto;
             left: 120px;
             top: auto;
             bottom: -20px;
             width: 75px; }
-            #top main .section01 .gallery-area .rayout .right ul .slick-next::before {
+            #top main #section01 .gallery-area .rayout .right ul .slick-next::before {
               content: "";
               transition: all 0.2s ease;
               width: 50px;
@@ -767,7 +816,7 @@ header {
               left: 0px;
               bottom: -5px;
               display: block; }
-            #top main .section01 .gallery-area .rayout .right ul .slick-next::after {
+            #top main #section01 .gallery-area .rayout .right ul .slick-next::after {
               content: "";
               transition: all 0.2s ease;
               position: relative;
@@ -778,10 +827,10 @@ header {
               border-style: solid;
               border-color: transparent transparent transparent #222;
               border-width: 10px 0px 0px 20px; }
-          #top main .section01 .gallery-area .rayout .right ul li {
+          #top main #section01 .gallery-area .rayout .right ul li {
             box-sizing: border-box !important;
             margin: 20px; }
-            #top main .section01 .gallery-area .rayout .right ul li a {
+            #top main #section01 .gallery-area .rayout .right ul li a {
               display: block;
               box-sizing: border-box !important;
               border: 8px solid #f1f1f1;
@@ -789,80 +838,80 @@ header {
               height: 375px;
               overflow: hidden;
               position: relative; }
-              #top main .section01 .gallery-area .rayout .right ul li a img {
+              #top main #section01 .gallery-area .rayout .right ul li a img {
                 position: absolute;
                 top: 0px;
                 left: 50%;
                 transform: translate(-50%, 0);
                 height: 100%; }
-    #top main .section02 {
+    #top main #section02 {
       padding: 100px 0;
       background: #222; }
-      #top main .section02 h2 {
+      #top main #section02 h2 {
         color: #f1f1f1; }
-        #top main .section02 h2::before {
+        #top main #section02 h2::before {
           background: #f1f1f1; }
-      #top main .section02 .text-area {
+      #top main #section02 .text-area {
         box-sizing: border-box;
         width: 100%;
         padding-left: 20%; }
-        #top main .section02 .text-area li {
+        #top main #section02 .text-area li {
           color: #f1f1f1;
           margin-bottom: 60px;
           position: relative;
           z-index: 1; }
-          #top main .section02 .text-area li img {
+          #top main #section02 .text-area li img {
             position: absolute;
             z-index: -1;
             width: 50%; }
             @media screen and (max-width: 767px) {
-              #top main .section02 .text-area li img {
+              #top main #section02 .text-area li img {
                 width: 100%; } }
-          #top main .section02 .text-area li:nth-child(1) img {
+          #top main #section02 .text-area li:nth-child(1) img {
             top: -100px;
             right: -80px; }
             @media screen and (max-width: 767px) {
-              #top main .section02 .text-area li:nth-child(1) img {
+              #top main #section02 .text-area li:nth-child(1) img {
                 top: -20px; } }
-          #top main .section02 .text-area li:nth-child(2) img {
+          #top main #section02 .text-area li:nth-child(2) img {
             top: -40px;
             left: -100px; }
             @media screen and (max-width: 767px) {
-              #top main .section02 .text-area li:nth-child(2) img {
+              #top main #section02 .text-area li:nth-child(2) img {
                 top: -20px; } }
-          #top main .section02 .text-area li:nth-child(3) img {
+          #top main #section02 .text-area li:nth-child(3) img {
             bottom: -100px;
             right: -20px; }
             @media screen and (max-width: 767px) {
-              #top main .section02 .text-area li:nth-child(3) img {
+              #top main #section02 .text-area li:nth-child(3) img {
                 bottom: -20px; } }
-          #top main .section02 .text-area li:nth-child(4) img {
+          #top main #section02 .text-area li:nth-child(4) img {
             bottom: -110px;
             left: -200px; }
             @media screen and (max-width: 767px) {
-              #top main .section02 .text-area li:nth-child(4) img {
+              #top main #section02 .text-area li:nth-child(4) img {
                 bottom: -20px;
                 left: -50px; } }
-    #top main .section03 {
+    #top main #section03 {
       padding: 100px 0;
       position: relative;
       z-index: 1;
       background: #F6F8F5; }
-      #top main .section03 .block01 {
+      #top main #section03 .block01 {
         margin-bottom: 60px; }
-        #top main .section03 .block01 > .image-area {
+        #top main #section03 .block01 > .image-area {
           text-align: center;
           padding: 40px 0; }
-          #top main .section03 .block01 > .image-area img {
+          #top main #section03 .block01 > .image-area img {
             width: 50%; }
             @media screen and (max-width: 767px) {
-              #top main .section03 .block01 > .image-area img {
+              #top main #section03 .block01 > .image-area img {
                 width: 100%; } }
-      #top main .section03 .block02 {
+      #top main #section03 .block02 {
         margin-bottom: 100px; }
-        #top main .section03 .block02 .card-area {
+        #top main #section03 .block02 .card-area {
           margin-bottom: 60px; }
-    #top main .section04 {
+    #top main #section04 {
       padding: 100px 0;
       background: url("../images/top/section04_bg.jpg") no-repeat;
       background-attachment: fixed;
@@ -871,116 +920,116 @@ header {
       z-index: 1;
       position: relative;
       color: #f1f1f1; }
-      #top main .section04 h2 {
+      #top main #section04 h2 {
         color: #f1f1f1; }
-        #top main .section04 h2::before {
+        #top main #section04 h2::before {
           background: #f1f1f1; }
-      #top main .section04 .block01 {
+      #top main #section04 .block01 {
         margin-bottom: 60px; }
-      #top main .section04 .block02 {
+      #top main #section04 .block02 {
         margin-bottom: 60px; }
-        #top main .section04 .block02 .photo-area {
+        #top main #section04 .block02 .photo-area {
           color: #f1f1f1;
           display: flex;
           justify-content: space-between;
           width: 100%; }
           @media screen and (max-width: 767px) {
-            #top main .section04 .block02 .photo-area {
+            #top main #section04 .block02 .photo-area {
               flex-wrap: wrap; } }
-          #top main .section04 .block02 .photo-area .left {
+          #top main #section04 .block02 .photo-area .left {
             width: 49%;
             box-sizing: border-box; }
             @media screen and (max-width: 767px) {
-              #top main .section04 .block02 .photo-area .left {
+              #top main #section04 .block02 .photo-area .left {
                 width: 100%;
                 margin-bottom: 30px; } }
-            #top main .section04 .block02 .photo-area .left img {
+            #top main #section04 .block02 .photo-area .left img {
               width: 100%; }
-          #top main .section04 .block02 .photo-area .right {
+          #top main #section04 .block02 .photo-area .right {
             width: 49%;
             box-sizing: border-box; }
             @media screen and (max-width: 767px) {
-              #top main .section04 .block02 .photo-area .right {
+              #top main #section04 .block02 .photo-area .right {
                 width: 100%; } }
-            #top main .section04 .block02 .photo-area .right img {
+            #top main #section04 .block02 .photo-area .right img {
               width: 100%; }
-      #top main .section04 .block03 {
+      #top main #section04 .block03 {
         margin-bottom: 60px; }
-        #top main .section04 .block03 p {
+        #top main #section04 .block03 p {
           margin-bottom: 1.5rem; }
-        #top main .section04 .block03 .photo-area {
+        #top main #section04 .block03 .photo-area {
           color: #f1f1f1;
           display: flex;
           justify-content: space-between;
           width: 100%; }
           @media screen and (max-width: 767px) {
-            #top main .section04 .block03 .photo-area {
+            #top main #section04 .block03 .photo-area {
               flex-wrap: wrap; } }
-          #top main .section04 .block03 .photo-area .left {
+          #top main #section04 .block03 .photo-area .left {
             width: 49%;
             box-sizing: border-box; }
             @media screen and (max-width: 767px) {
-              #top main .section04 .block03 .photo-area .left {
+              #top main #section04 .block03 .photo-area .left {
                 width: 100%;
                 margin-bottom: 30px; } }
-            #top main .section04 .block03 .photo-area .left img {
+            #top main #section04 .block03 .photo-area .left img {
               width: 100%; }
-          #top main .section04 .block03 .photo-area .right {
+          #top main #section04 .block03 .photo-area .right {
             width: 49%;
             box-sizing: border-box; }
             @media screen and (max-width: 767px) {
-              #top main .section04 .block03 .photo-area .right {
+              #top main #section04 .block03 .photo-area .right {
                 width: 100%; } }
-            #top main .section04 .block03 .photo-area .right img {
+            #top main #section04 .block03 .photo-area .right img {
               width: 100%; }
-      #top main .section04 .block04 {
+      #top main #section04 .block04 {
         margin-bottom: 60px; }
-        #top main .section04 .block04 .table-area table tr th {
+        #top main #section04 .block04 .table-area table tr th {
           background: #fefefe;
           border: 1px solid #222;
           color: #222; }
-        #top main .section04 .block04 .table-area table tr td {
+        #top main #section04 .block04 .table-area table tr td {
           background: #222;
           border: 1px solid #fefefe; }
-    #top main .section05 {
+    #top main #section05 {
       padding: 100px 0;
       position: relative;
       z-index: 1;
       background: #F6F8F5; }
-      #top main .section05 .block01 .text-photo-area {
+      #top main #section05 .block01 .text-photo-area {
         margin-bottom: 60px; }
-      #top main .section05 .block02 .card-area li .text-area h4 small {
+      #top main #section05 .block02 .card-area li .text-area h4 small {
         display: block; }
-    #top main .section06 {
+    #top main #section06 {
       padding-bottom: 100px;
       position: relative;
       z-index: 1;
       background: #F6F8F5; }
-    #top main .section07 {
+    #top main #section07 {
       padding-bottom: 100px;
       position: relative;
       z-index: 1;
       background: url("../images/top/section07_bg.jpg") no-repeat #F6F8F5;
       background-size: 500px;
       background-position: bottom left; }
-      #top main .section07 .block01 {
+      #top main #section07 .block01 {
         margin-bottom: 60px; }
-      #top main .section07 .block02, #top main .section07 .block03, #top main .section07 .block04 {
+      #top main #section07 .block02, #top main #section07 .block03, #top main #section07 .block04 {
         margin-bottom: 60px; }
-        #top main .section07 .block02 ul li, #top main .section07 .block03 ul li, #top main .section07 .block04 ul li {
+        #top main #section07 .block02 ul li, #top main #section07 .block03 ul li, #top main #section07 .block04 ul li {
           text-indent: -1rem;
           margin-left: 1rem;
           margin-bottom: 1rem; }
-      #top main .section07 .block05 h3 {
+      #top main #section07 .block05 h3 {
         margin-bottom: 4rem; }
-    #top main .section08 {
+    #top main #section08 {
       padding: 100px 0;
       position: relative;
       z-index: 1;
       background: #F6F8F5; }
-      #top main .section08 .image-area img {
+      #top main #section08 .image-area img {
         width: 100%; }
-    #top main .section09 {
+    #top main #section09 {
       padding: 200px 0;
       background: url("../images/top/section09_bg.jpg") no-repeat;
       background-attachment: fixed;
@@ -1172,6 +1221,64 @@ main {
         main .card-area.column3 > li {
           width: 100%;
           margin-bottom: 60px; } }
+  main .breadcrumbs {
+    padding: 20px 0; }
+    main .breadcrumbs ul {
+      display: flex;
+      flex-wrap: wrap; }
+      main .breadcrumbs ul li {
+        margin-right: 50px;
+        position: relative; }
+        main .breadcrumbs ul li::after {
+          content: "＞";
+          display: block;
+          position: absolute;
+          top: 50%;
+          right: -30px;
+          transform: translate(0, -50%); }
+        main .breadcrumbs ul li:last-child::after {
+          display: none; }
+  main #title {
+    padding: 100px 0;
+    z-index: 1;
+    position: relative;
+    margin-bottom: 100px; }
+    main #title.about_igusa {
+      background: url("../images/about_igusa/mv.jpg") no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: left bottom; }
+    main #title::before {
+      content: "";
+      display: block;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+    main #title h1 {
+      font-size: 2.5rem;
+      color: #f1f1f1;
+      position: relative;
+      font-weight: 400; }
+      main #title h1::before {
+        content: "";
+        width: 1920px;
+        height: 1px;
+        background: #f1f1f1;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -1930px;
+        transform: translate(0, -50%); }
+  main .catch-area {
+    margin-bottom: 100px; }
+    main .catch-area p {
+      font-size: 1.8rem;
+      font-weight: 400; }
+  main .section {
+    margin-bottom: 60px; }
 
 footer {
   width: 100%;

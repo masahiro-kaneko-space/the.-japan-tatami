@@ -231,7 +231,9 @@ body{
   position:relative;
 }
 
-h1{}
+h1{
+	font-weight:400;
+}
 
 h2{
 	font-size:1.8rem;
@@ -301,6 +303,14 @@ strong{
 
 small{
 	font-size:0.8rem;
+}
+
+.scroll-prevent {
+  //position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+	overflow:hidden;
 }
 
 .container{
@@ -378,6 +388,13 @@ header{
 			box-sizing: border-box;
 		}
 		& > ul{
+			@include mq-down(md) {
+				position:absolute;
+				left:50%;
+				top:50%;
+				transform: translate(-50%,-50%);
+				width:calc(100% - 40px);
+			}
 			& > li{
 				position:relative;
 				width:100%;
@@ -387,17 +404,47 @@ header{
 					display:block;
 					border-left:0 solid #E50012;
 					color:#222;
+					@include mq-down(md) {
+						color:#f1f1f1;
+						position:relative;
+						padding:10px 0;
+					}
+					&::before{
+						@include mq-down(md) {
+							content:"";
+							width:20px;
+							height:1px;
+							background:#f1f1f1;
+							display: block;
+							position:absolute;
+							top:50%;
+							left:-30px;
+							transform: translate(0,-50%);
+						}
+					}
 				}
 				ul{
 					transition:all 0.2s ease;
 					opacity: 0;
 					pointer-events: none;
 					position:absolute;
-					top:0;
+					top:50%;
 					left:200px;
-					width:240px;
+					width:300px;
+					transform: translate(0,-50%);
+					background:rgba(0,0,0,0.8);
+					box-sizing: border-box;
+					padding:20px;
+					@include mq-down(md) {
+						position:static;
+						width:100%;
+						top:auto;
+						left:auto;
+						transform:none;
+						background:none;
+						padding:0;
+					}
 					li{
-						background:rgba(0,0,0,0.8);
 						a{
 							@include font_noto-serif-jp();
 							font-size:1.1rem;
@@ -514,12 +561,11 @@ header{
 		nav{
 			opacity: 1;
 			pointer-events:visible;
-			background:rgba(1,154,57,0.8);
+			background:rgba(0,0,0,0.8);
 	    overscroll-behavior: contain;
 			& > ul{
 				& > li{
 					a{
-
 					}
 					ul{
 						opacity: 1!important;
@@ -575,8 +621,14 @@ header{
 						ul{
 							li{
 								background:#f1f1f1;
+								@include mq-down(md) {
+									background:none;
+								}
 								a{
 									color:#222;
+									@include mq-down(md) {
+										color:#f1f1f1;
+									}
 								}
 							}
 						}
@@ -691,7 +743,7 @@ header{
 			}
 		}
 		/* section01 */
-		.section01{
+		#section01{
 			position:relative;
 			padding:100px 0;
 			.message{
@@ -839,7 +891,7 @@ header{
 			}
 		}
 		/* section02 */
-		.section02{
+		#section02{
 			padding:100px 0;
 			background:#222;
 			h2{
@@ -906,7 +958,7 @@ header{
 			}
 		}
 		/* section03 */
-		.section03{
+		#section03{
 			padding:100px 0;
 			position:relative;
 			z-index: 1;
@@ -933,7 +985,7 @@ header{
 		}
 
 		/* section04 */
-		.section04{
+		#section04{
 			padding:100px 0;
 			background:url("../images/top/section04_bg.jpg") no-repeat;
 			background-attachment: fixed;
@@ -1041,7 +1093,7 @@ header{
 		}
 
 		/* section05 */
-		.section05{
+		#section05{
 			padding:100px 0;
 			position:relative;
 			z-index: 1;
@@ -1067,7 +1119,7 @@ header{
 		}
 
 		/* section06 */
-		.section06{
+		#section06{
 			padding-bottom:100px;
 			position:relative;
 			z-index: 1;
@@ -1075,7 +1127,7 @@ header{
 		}
 
 		/* section07 */
-		.section07{
+		#section07{
 			padding-bottom:100px;
 			position:relative;
 			z-index: 1;
@@ -1104,7 +1156,7 @@ header{
 		}
 
 		/* section08 */
-		.section08{
+		#section08{
 			padding:100px 0;
 			position:relative;
 			z-index: 1;
@@ -1117,7 +1169,7 @@ header{
 		}
 
 		/* section09 */
-		.section09{
+		#section09{
 			padding:200px 0;
 			background:url("../images/top/section09_bg.jpg") no-repeat;
 			background-attachment: fixed;
@@ -1370,6 +1422,79 @@ main{
 				}
 			}
 		}
+	}
+	.breadcrumbs{
+		padding:20px 0;
+		ul{
+			display: flex;
+			flex-wrap: wrap;
+			li{
+				margin-right:50px;
+				position:relative;
+				&::after{
+					content:"＞";
+					display:block;
+					position:absolute;
+					top:50%;
+					right:-30px;
+					transform: translate(0, -50%);
+				}
+				&:last-child{
+					&::after{
+						display:none;
+					}
+				}
+			}
+		}
+	}
+	#title{
+		padding:100px 0;
+		z-index: 1;
+		position:relative;
+		margin-bottom:100px;
+		&.about_igusa{
+			background:url("../images/about_igusa/mv.jpg") no-repeat;
+			background-attachment: fixed;
+			background-size:cover;
+			background-position:left bottom;
+		}
+		&::before{
+			content:"";
+			display:block;
+			background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0));
+			position:absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+		}
+		h1{
+			font-size:2.5rem;
+			color:#f1f1f1;
+			position:relative;
+			font-weight:400;
+			&::before{
+				content:"";
+				width:1920px;
+				height:1px;
+				background:#f1f1f1;
+				display: block;
+				position:absolute;
+				top:50%;
+				left:-1930px;
+				transform: translate(0,-50%);
+			}
+		}
+	}
+	.catch-area{
+		margin-bottom:100px;
+		p{
+			font-size:1.8rem;
+			font-weight:400;
+		}
+	}
+	.section{
+		margin-bottom:60px;
 	}
 }
 

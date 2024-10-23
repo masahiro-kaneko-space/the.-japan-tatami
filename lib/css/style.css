@@ -296,6 +296,9 @@ table {
   .txt-right_sp {
     text-align: right; } }
 
+.red {
+  color: #E50012; }
+
 * {
   transform-origin: 0 0; }
 
@@ -347,11 +350,15 @@ h3 {
   @media screen and (max-width: 767px) {
     h3 {
       font-size: 1.4rem; } }
+  h3 small {
+    display: block; }
 
 h4 {
   font-size: 1.2rem;
   font-weight: 400;
   margin-bottom: 1.5rem; }
+  h4 small {
+    display: block; }
 
 a, a:hover {
   transition: all 200ms 0s ease;
@@ -377,8 +384,7 @@ small {
   overflow: hidden; }
 
 .container {
-  max-width: 1080px;
-  min-width: 800px;
+  width: 1080px;
   padding: 0 40px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -1032,7 +1038,7 @@ header {
       position: relative;
       z-index: 1;
       background: url("../images/top/section07_bg.jpg") no-repeat #F6F8F5;
-      background-size: 500px;
+      background-size: 750px;
       background-position: bottom left; }
       #top main #section07 .block01 {
         margin-bottom: 60px; }
@@ -1165,7 +1171,10 @@ main {
         border: 1px solid #fefefe;
         color: #f1f1f1;
         font-weight: 400;
-        padding: 20px; }
+        padding: 20px;
+        vertical-align: middle; }
+        main .table-area table tr th small {
+          display: block; }
       main .table-area table tr td {
         background: #fefefe;
         border: 1px solid #222;
@@ -1204,6 +1213,8 @@ main {
       @media screen and (max-width: 767px) {
         main .image-area img {
           width: 100%; } }
+    main .image-area.w100 img {
+      width: 100%; }
   main .card-area {
     display: flex;
     box-sizing: border-box;
@@ -1305,6 +1316,8 @@ main {
       font-size: 1.8rem;
       font-weight: 400; }
   main .section {
+    margin-bottom: 100px; }
+  main .block {
     margin-bottom: 60px; }
   main .pagelink-area {
     margin-bottom: 100px; }
@@ -1370,6 +1383,94 @@ main {
           main .pagelink-area ul li a:hover img {
             opacity: 0.8;
             transform: scale(1.1); }
+  main #category01 {
+    background: url("../images/products/category01_bg.jpg") no-repeat #F6F8F5;
+    background-size: 500px;
+    background-position: top right 5%;
+    padding-top: 100px; }
+    main #category01 h2 {
+      margin-bottom: 100px; }
+  main #category02 {
+    background: url("../images/products/category02_bg.jpg") no-repeat #F6F8F5;
+    background-size: 500px;
+    background-position: top right 5%;
+    padding-top: 100px; }
+    main #category02 h2 {
+      margin-bottom: 100px; }
+  main #category03 {
+    background: url("../images/products/category03_bg.jpg") no-repeat #F6F8F5;
+    background-size: 500px;
+    background-position: top right 5%;
+    padding-top: 100px; }
+    main #category03 h2 {
+      margin-bottom: 100px; }
+  main .gallery-area {
+    width: 100%;
+    max-width: 1000px; }
+    main .gallery-area img {
+      height: auto;
+      width: 100%; }
+    main .gallery-area .slider .slick-list {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); }
+    main .gallery-area .thumbnail .slick-track {
+      transform: unset !important; }
+    main .gallery-area .thumbnail .thumbnail-img {
+      opacity: 0.3;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+      border: 3px solid #f1f1f1;
+      width: 180px !important;
+      margin: 30px 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); }
+    main .gallery-area .thumbnail .slick-current {
+      opacity: 1;
+      border: 3px solid #E50012; }
+  main .list {
+    display: flex;
+    flex-wrap: wrap; }
+    main .list li {
+      width: calc(20% - 10px);
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      text-align: center;
+      margin-right: 12px; }
+      @media screen and (max-width: 767px) {
+        main .list li {
+          width: calc(50% - 10px);
+          margin-right: 20px; } }
+      @media screen and (max-width: 767px) {
+        main .list li:nth-child(2n) {
+          margin-right: 0; } }
+      @media screen and (min-width: 768px) {
+        main .list li:nth-child(5n) {
+          margin-right: 0; } }
+      main .list li a span {
+        position: relative;
+        z-index: 1;
+        background: #F6F8F5;
+        display: block; }
+      main .list li a img {
+        width: 100%;
+        transition: all 0.2s ease;
+        transform-origin: 50% 50%;
+        display: block;
+        top: 0;
+        left: 0; }
+      main .list li a:hover img {
+        transform: scale(1.1); }
+  main .textlist {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    position: relative; }
+    main .textlist::before {
+      display: block;
+      position: absolute;
+      left: -1rem; }
+    main .textlist.ast::before {
+      content: "＊"; }
+    main .textlist.dot::before {
+      content: "・"; }
 
 footer {
   width: 100%;

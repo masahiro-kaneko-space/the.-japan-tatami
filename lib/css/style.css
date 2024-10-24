@@ -1277,27 +1277,35 @@ main {
     position: relative;
     margin-bottom: 100px;
     width: 100%; }
-    main #title.about_igusa {
+    main #title.about_igusa::before {
       background: url("../images/about_igusa/mv.jpg") no-repeat;
       background-attachment: fixed;
       background-size: cover;
-      background-position: right bottom; }
-    main #title.products {
+      background-position: center; }
+    main #title.products::before {
       background: url("../images/products/mv.jpg") no-repeat;
       background-attachment: fixed;
       background-size: cover;
-      background-position: right bottom; }
-    main #title.about_nishijin {
+      background-position: center; }
+    main #title.about_nishijin::before {
       background: url("../images/about_nishijin/mv.jpg") no-repeat;
       background-attachment: fixed;
       background-size: cover;
-      background-position: right bottom; }
-    main #title.about_joushitsu {
+      background-position: center; }
+    main #title.about_joushitsu::before {
       background: url("../images/about_joushitsu/mv.jpg") no-repeat;
       background-attachment: fixed;
       background-size: cover;
-      background-position: right bottom; }
+      background-position: center; }
     main #title::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+    main #title::after {
       content: "";
       display: block;
       background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
@@ -1310,7 +1318,8 @@ main {
       font-size: 2.5rem;
       color: #f1f1f1;
       position: relative;
-      font-weight: 400; }
+      font-weight: 400;
+      z-index: 1; }
       main #title h1::before {
         content: "";
         width: 1920px;

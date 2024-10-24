@@ -1497,6 +1497,8 @@ main {
     justify-content: space-between; }
     main .imagelist.col4 li {
       width: calc(25% - 10px); }
+    main .imagelist.col3 li {
+      width: calc(33.3333% - 10px); }
     main .imagelist li {
       width: calc(20% - 10px);
       margin-bottom: 10px; }

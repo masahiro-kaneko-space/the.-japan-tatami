@@ -1729,6 +1729,10 @@ main{
 			  width:180px!important;
 			  margin:30px 10px;
 			  box-shadow:0 0 10px rgba(0,0,0,0.2);
+				@include mq-down(md) {
+					width:calc(33.3333% - 20px)!important;
+					margin-bottom:0;
+				}
 			}
 			.slick-current {
 			  opacity: 1;
@@ -1880,7 +1884,14 @@ footer{
 
 
 
-
+#lightbox{
+	.lb-data{
+		.lb-caption{
+			font-size:12px;
+			font-weight:normal;
+		}
+	}
+}
 
 .scroll-top{
 	transition: none;
